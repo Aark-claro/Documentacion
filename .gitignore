@@ -1,0 +1,20 @@
+# Descargas y archivos generados por el código
+backlog_nacional/descargas/
+backlog_nacional/logs/
+maximo bot/descargas/
+
+# Archivos de datos temporales
+*.csv
+*.xlsx
+*.log
+last_download.json
+
+# Python
+__pycache__/
+*.pyc
+.env
+venv/
+
+# Sistema
+.DS_Store
+Thumbs.db
