@@ -1,0 +1,26 @@
+[Unit]
+Description=Backlog Nacional SharePoint Monitor
+After=network.target mysql.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/opt/backlog-monitor
+ExecStart=/opt/backlog-monitor/venv/bin/python /opt/backlog-monitor/main.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/opt/backlog-monitor/logs/service.log
+StandardError=append:/opt/backlog-monitor/logs/service-error.log
+
+# Variables de entorno (opcional, ajusta según necesites)
+Environment="PYTHONUNBUFFERED=1"
+Environment="TZ=America/Bogota"
+
+# Límites de recursos
+LimitNOFILE=65536
+MemoryMax=1G
+
+[Install]
+WantedBy=multi-user.target
